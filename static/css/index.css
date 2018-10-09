@@ -1,0 +1,402 @@
+@charset "UTF-8";
+/*body {*/
+    /*margin: 0;*/
+    /*padding: 0;*/
+    /*font-family: Microsoft YaHei;*/
+    /*background: #2d2d2d;*/
+/*}*/
+
+p {
+    font-size: 15px;
+}
+
+h2 {
+    font-size: 18px;
+}
+
+.container {
+
+}
+
+/*.row {*/
+    /*width: 1000px;*/
+    /*margin: 60px auto;*/
+
+/*}*/
+
+/*.row:after {*/
+    /*content: "";*/
+    /*display: block;*/
+    /*clear: both;*/
+/*}*/
+
+.box {
+    margin-right: 20px;
+    position: relative;
+    float: left;
+    overflow: hidden;
+}
+
+.box-img img {
+    /*width: 100%;*/
+    /*height: auto;*/
+    transition: 0.5s;
+    vertical-align: middle;
+}
+
+.row01 .box:hover img {
+    transform: scale(1.1);
+}
+
+.box-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.74);
+    transition: 0.5s;
+}
+
+/* 效果一 */
+.box.effect-1 .box-text {
+    transform: translateY(-100%);
+}
+
+.box.effect-1:hover .box-text {
+    transform: translateY(0);
+}
+
+/* 效果二 */
+.box.effect-2 .box-text {
+    transform: translateY(100%);
+}
+
+.box.effect-2:hover .box-text {
+    transform: translateY(0);
+}
+
+/* 效果三 */
+.box.effect-3 .box-text {
+    transform: scale(0);
+}
+
+.box.effect-3:hover .box-text {
+    transform: scale(1);
+}
+
+/* 效果四 */
+.row02 .box-text {
+    z-index: -1;
+}
+
+.row02 .box {
+    perspective: 800px;
+}
+
+.box.effect-4:hover .box-img {
+    transform: rotateX(80deg);
+    transform-origin: center bottom 0;
+    transition: 0.4s;
+}
+
+/* 效果五 */
+.box.effect-5:hover .box-img {
+    transform: rotateX(80deg);
+    transform-origin: center bottom 0;
+    transition: 0.4s;
+}
+
+.box.effect-5 .box-text {
+    transform: translateY(-100%);
+}
+
+.box.effect-5:hover .box-text {
+    transform: translateY(0);
+}
+
+/* 效果六 */
+.box.effect-6:hover .box-img {
+    transform: rotateX(80deg);
+    transform-origin: center bottom 0;
+    transition: 0.4s;
+}
+
+.box.effect-6 .box-text {
+    transform: translateY(100%);
+}
+
+.box.effect-6:hover .box-text {
+    transform: translateY(0);
+}
+
+/* 效果7 */
+.box.effect-7:hover img {
+    transform: scale(1.1);
+}
+
+.box.effect-7 .box-text {
+    /* transform: translateY(-100%); */
+    transform: rotateX(80deg);
+    transform-origin: center top 0;
+    transition: 0.4s;
+    opacity: 0;
+}
+
+.box.effect-7:hover .box-text {
+    /* transform: translateY(0); */
+    transform: none;
+    opacity: 1;
+}
+
+/* 效果8 */
+.box.effect-8 .box-text {
+    /* transform: translateY(-100%); */
+    transform: rotateX(80deg);
+    transform-origin: center bottom 0;
+    transition: 0.4s;
+    opacity: 0;
+}
+
+.box.effect-8:hover .box-text {
+    /* transform: translateY(0); */
+    transform: none;
+    opacity: 1;
+}
+
+.box.effect-8 .box-img {
+    transform: translateY(0);
+    transition: 0.4s;
+}
+
+.box.effect-8:hover .box-img {
+    transform: translateY(-100%);
+    transition: 0.4s;
+}
+
+/* 效果9 */
+.box.effect-9 .box-text {
+    /* transform: translateY(-100%); */
+    transform: rotateX(80deg);
+    transform-origin: center top 0;
+    transition: 0.4s;
+    opacity: 0;
+}
+
+.box.effect-9:hover .box-text {
+    /* transform: translateY(0); */
+    transform: none;
+    opacity: 1;
+}
+
+.box.effect-9 .box-img {
+    transform: translateY(0);
+    transition: 0.4s;
+}
+
+.box.effect-9:hover .box-img {
+    transform: translateY(100%);
+    transition: 0.4s;
+}
+
+/* 效果10 */
+.box.effect-10 .box-img {
+    transition: 0.5s;
+    transform: rotateX(360deg) scale(1, 1);
+}
+
+.box.effect-10 .box-text {
+    transform: rotateY(0deg) scale(0, 0);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box.effect-10:hover .box-text {
+    transform: rotateY(360deg) scale(1, 1);
+    opacity: 1;
+}
+
+.box.effect-10:hover .box-img {
+    transform: rotateY(0deg) scale(0, 0);
+}
+
+/* 效果11 */
+.box.effect-11 .box-img {
+    transition: 0.5s;
+    transform: rotateX(360deg) scale(1, 1);
+}
+
+.box.effect-11 .box-text {
+    transform: rotateX(0deg) scale(0, 0);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box.effect-11:hover .box-text {
+    transform: rotateX(360deg) scale(1, 1);
+    opacity: 1;
+}
+
+.box.effect-11:hover .box-img {
+    transform: rotateX(0deg) scale(0, 0);
+}
+
+/* 效果12 */
+.box.effect-12 .box-img {
+    transition: 0.5s;
+    transform: rotate(360deg) scale(1, 1);
+}
+
+.box.effect-12 .box-text {
+    transform: rotate(0deg) scale(0, 0);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box.effect-12:hover .box-text {
+    transform: rotate(360deg) scale(1, 1);
+    opacity: 1;
+}
+
+.box.effect-12:hover .box-img {
+    transform: rotate(0deg) scale(0, 0);
+}
+
+/* 效果13 */
+.row05 .box {
+    overflow: visible;
+}
+
+.box.effect-13 .box-text {
+    transform: translateX(100%);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box.effect-13 .box-img {
+    transition: 0.5s;
+    z-index: 11;
+}
+
+.box.effect-13:hover .box-text {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.box.effect-13:hover .box-img {
+    position: relative;
+    transform: translateX(-50%) scale(0.5);
+    z-index: 120;
+    border: 6px solid rgba(255, 255, 255, 0.9);
+}
+
+/* 效果14 */
+.box.effect-14 .box-text {
+    transform: translateY(-100%);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box.effect-14 .box-img {
+    transition: 0.5s;
+    z-index: 11;
+}
+
+.box.effect-14:hover .box-text {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.box.effect-14:hover .box-img {
+    position: relative;
+    transform: translateY(50%) scale(0.5);
+    z-index: 120;
+    border: 6px solid rgba(255, 255, 255, 0.9);
+}
+
+/* 效果15*/
+.box.effect-15 .box-text {
+    transform: translateX(-100%);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.box.effect-15 .box-img {
+    transition: 0.5s;
+    z-index: 11;
+}
+
+.box.effect-15:hover .box-text {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.box.effect-15:hover .box-img {
+    position: relative;
+    transform: translateX(50%) scale(0.5);
+    z-index: 120;
+    border: 6px solid rgba(255, 255, 255, 0.9);
+}
+
+/* 效果16*/
+.box.effect-16 .box-text {
+    transform: perspective(600px) rotateY(90deg);
+    transform-origin: left center 0;
+    width: 50%;
+}
+
+.box.effect-16 .box-img {
+    transition: 0.5s;
+    z-index: 11;
+    transform: translateX(0);
+}
+
+.box.effect-16:hover .box-text {
+    opacity: 1;
+    transform: perspective(600px) rotateY(0deg);
+    z-index: 99;
+}
+
+.box.effect-16:hover .box-img {
+    position: relative;
+    transform: translateX(50%);
+}
+
+/* 效果17*/
+.box.effect-17 .box-text {
+    transform: perspective(600px) rotateX(90deg);
+    transform-origin: top center 0;
+    height: 50%;
+}
+
+.box.effect-17:hover .box-text {
+    opacity: 1;
+    transform: perspective(600px) rotateX(0deg);
+    z-index: 99;
+}
+
+/* 效果18*/
+.box.effect-18 .box-text {
+    transform: perspective(600px) rotateY(-90deg);
+    transform-origin: right center 0;
+    width: 50%;
+    left: 50%;
+}
+
+.box.effect-18 .box-img {
+    transition: 0.5s;
+    z-index: 11;
+    transform: translateX(0);
+}
+
+.box.effect-18:hover .box-text {
+    opacity: 1;
+    transform: perspective(600px) rotateY(0deg);
+    z-index: 99;
+}
+
+.box.effect-18:hover .box-img {
+    position: relative;
+    transform: translateX(-50%);
+}
