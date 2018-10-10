@@ -10,17 +10,17 @@ import os
 
 class AutoGetBingDailyPg:
     def __init__(self):
-        self.image_msg = dict()
+        self.image_msg = dict()  # 储存图片相关信息的字典
         self.base_url = ' https://cn.bing.com'
         self.log = self.log_func()
 
     def get_image_msg(self):
         compile_dict = {
-            'image_date': re.compile('data-date="(.*?)"'),
-            'image_urlbase': re.compile('g_img={url: "(.*?)",d'),
-            'image_copyright': re.compile('class="sc_light" title="(.*?)" aria-label'),
-            'id_com': re.compile('target="_blank" href="javascript:void\(0\)" h="ID=(.*?)"'),
-            'ig_com': re.compile('IG:"(.*?)",EventID:')
+            'image_date': re.compile('data-date="(.*?)"'),  # 图片日期正则
+            'image_urlbase': re.compile('g_img={url: "(.*?)",d'),  # 图片urlbase正则
+            'image_copyright': re.compile('class="sc_light" title="(.*?)" aria-label'),  # 图片copyright正则
+            'id_com': re.compile('target="_blank" href="javascript:void\(0\)" h="ID=(.*?)"'),  # js参数
+            'ig_com': re.compile('IG:"(.*?)",EventID:')  # js参数
         }
         html = requests.get(self.base_url).text
         for key in compile_dict.keys():
@@ -28,14 +28,13 @@ class AutoGetBingDailyPg:
                 self.image_msg[key] = compile_dict[key].findall(html, re.S)[0]
                 print(self.image_msg[key])
         image_name = self.image_msg['image_urlbase'].split('/')[-1].replace('_1920x1080.jpg', '') if self.image_msg[
-            'image_urlbase'].endswith('1920x1080.jpg') else self.image_msg['image_urlbase']
-        t_str = time.strptime(self.image_msg['image_date'], '%Y%m%d')
+            'image_urlbase'].endswith('1920x1080.jpg') else self.image_msg['image_urlbase']  # 从urlbase中得到图片名字
+        t_str = time.strptime(self.image_msg['image_date'], '%Y%m%d')  # 将日期从%Y%m%d -> %Y-%m-%d
         self.image_msg['image_date'] = time.strftime('%Y-%m-%d', t_str)
         id = compile_dict['id_com'].findall(html, re.S)[0]
         ig = compile_dict['ig_com'].findall(html, re.S)[0]
         print(id, ig, image_name)
-        # time.sleep(60)
-        image_position, image_description = self.get_detail(id, ig)
+        image_position, image_description = self.get_detail(id, ig)  # 图片拍摄地及图片描述
         self.image_msg['image_position'] = image_position
         self.image_msg['image_description'] = image_description
         self.image_msg['image_name'] = image_name
@@ -83,13 +82,13 @@ class AutoGetBingDailyPg:
     def log_func(self):
         log = logging.getLogger(__name__)
         log.setLevel(logging.INFO)
-        if not log.handlers:  # ?????????????д?????????о???????????о??????????к???
-            fmt = '%(name)s %(asctime)s %(levelname)s %(message)s'  # ??????????? ?????-???-???????-??????
-            dft = '%Y-%m-%d  %H:%M:%S'  # ?????????? ??-??-?? ?-??-??
-            fh = logging.FileHandler(os.path.abspath('log.log'), encoding='utf-8')  # ?????????
-            formattr = logging.Formatter(fmt=fmt, datefmt=dft)  # ???????????
-            fh.setFormatter(formattr)  # ??????????????????????
-            log.addHandler(fh)  # ???????????
+        if not log.handlers:  # 防止出现多个重复处理函数
+            fmt = '%(name)s %(asctime)s %(levelname)s %(message)s'  # 设置日志记录的格式
+            dft = '%Y-%m-%d  %H:%M:%S'  # 设置时间格式
+            fh = logging.FileHandler(os.path.abspath('log.log'), encoding='utf-8')  # 日志记录文件
+            formattr = logging.Formatter(fmt=fmt, datefmt=dft) 
+            fh.setFormatter(formattr)
+            log.addHandler(fh)  # 添加处理函数
 
         return log
 
